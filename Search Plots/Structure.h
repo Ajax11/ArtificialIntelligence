@@ -16,6 +16,9 @@ using namespace std;
 struct Structure
 {
 public:
+
+	Structure(){}
+
 	Structure(int size){
 		Matrix.resize(size);
 		for (int i = 0; i < size; ++i)
@@ -23,6 +26,23 @@ public:
 			Matrix[i].resize(size,1);
 		}
 	}
+
+
+	Structure(const Structure & struc){
+		int size = struc.Matrix.size();
+		Matrix.resize(size);
+		for (int i = 0; i < size; ++i)
+		{
+			Matrix[i].resize(size);
+		}
+		for(int i = 0; i < size; ++i){
+			for (int j = 0; j < size; ++j)
+			{
+				Matrix[i][j] = struc.Matrix[i][j];
+			}
+		}
+	}
+
 	~Structure(){}
 
 	vector< vector<bool> > Matrix;
@@ -43,6 +63,11 @@ public:
 //kill the box, turn off the box
 	void turnOnData(int x, int y){
 		Matrix[x][y]=1;
+	}
+
+//change value of the data
+	void changeValue(int x, int y){
+		Matrix[x][y] = !Matrix[x][y];
 	}
 
 //To make a log off the box or the current state of the box
