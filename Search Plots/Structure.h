@@ -27,7 +27,6 @@ public:
 		}
 	}
 
-
 	Structure(const Structure & struc){
 		int size = struc.Matrix.size();
 		Matrix.resize(size);
@@ -58,7 +57,6 @@ public:
 //turn on the box
 	void turnOffData(int x, int y){
 		Matrix[x][y]=0;
-		return ;
 	}
 //kill the box, turn off the box
 	void turnOnData(int x, int y){
